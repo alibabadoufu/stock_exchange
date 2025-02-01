@@ -3,6 +3,7 @@
 import { MarketData } from '@/types/trading';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import { BsArrowUpRight } from 'react-icons/bs';
+import Image from 'next/image';
 
 interface MarketHeaderProps {
   market: MarketData;
@@ -15,7 +16,13 @@ export default function MarketHeader({ market, leverage = '10x' }: MarketHeaderP
       <div className="flex items-center px-4 h-14">
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1">
-            <img src="/bitcoin.svg" alt="BTC" className="w-6 h-6" />
+            <Image 
+              src="/bitcoin.svg" 
+              alt="BTC" 
+              width={24} 
+              height={24} 
+              className="w-6 h-6" 
+            />
             <span className="font-medium">{market.symbol}</span>
             <span className="text-gray-400">{leverage}</span>
             <button className="text-gray-400 hover:text-yellow-500">

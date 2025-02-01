@@ -1,6 +1,6 @@
 'use client';
 
-import { createChart } from 'lightweight-charts';
+import { createChart, ColorType } from 'lightweight-charts';
 import { useEffect, useRef, useState } from 'react';
 import { IoTimeOutline } from 'react-icons/io5';
 
@@ -28,7 +28,10 @@ export default function TradingChart({ data }: TradingChartProps) {
     try {
       const chartOptions = {
         layout: {
-          background: { type: 'solid', color: '#1B1B1B' },
+          background: {
+            type: ColorType.Solid,
+            color: '#1B1B1F'
+          },
           textColor: '#DDD',
         },
         grid: {
