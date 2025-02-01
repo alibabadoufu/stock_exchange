@@ -1,6 +1,6 @@
 'use client';
 
-import { createChart, ColorType } from 'lightweight-charts';
+import { createChart, ColorType, LineStyle } from 'lightweight-charts';
 import { useEffect, useRef, useState } from 'react';
 import { IoTimeOutline } from 'react-icons/io5';
 
@@ -53,12 +53,12 @@ export default function TradingChart({ data }: TradingChartProps) {
           vertLine: {
             color: '#555',
             width: 1,
-            style: 3,
+            style: LineStyle.Dotted,
           },
           horzLine: {
             color: '#555',
             width: 1,
-            style: 3,
+            style: LineStyle.Dotted,
           },
         },
       };
