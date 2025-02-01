@@ -1,6 +1,6 @@
 'use client';
 
-import { createChart, ColorType, LineStyle } from 'lightweight-charts';
+import { createChart, ColorType, LineStyle, CandlestickStyleOptions, SeriesOptionsCommon } from 'lightweight-charts';
 import type { DeepPartial, ChartOptions } from 'lightweight-charts';
 import { useEffect, useRef, useState } from 'react';
 import { IoTimeOutline } from 'react-icons/io5';
@@ -73,14 +73,14 @@ export default function TradingChart({ data }: TradingChartProps) {
 
       const chart = createChart(chartContainerRef.current, chartOptions);
 
-      const candlestickSeriesOptions = {
+      const candlestickSeriesOptions: DeepPartial<CandlestickStyleOptions & SeriesOptionsCommon> = {
         upColor: '#26a69a',
         downColor: '#ef5350',
         borderVisible: false,
         wickUpColor: '#26a69a',
         wickDownColor: '#ef5350',
         priceFormat: {
-          type: 'price',
+          type: 'price' as const,
           precision: 2,
           minMove: 0.01,
         },
