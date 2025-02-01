@@ -1,6 +1,7 @@
 'use client';
 
 import { createChart, ColorType, LineStyle } from 'lightweight-charts';
+import type { DeepPartial, ChartOptions } from 'lightweight-charts';
 import { useEffect, useRef, useState } from 'react';
 import { IoTimeOutline } from 'react-icons/io5';
 
@@ -16,6 +17,13 @@ interface TradingChartProps {
   data: CandlestickData[];
 }
 
+enum LineWidth {
+  Thin = 1,
+  Normal = 2,
+  Thick = 3,
+  Bold = 4
+}
+
 const timeframes = ['1s', '1m', '5m', '15m', '1h', '4h', '1D'];
 
 export default function TradingChart({ data }: TradingChartProps) {
@@ -26,7 +34,7 @@ export default function TradingChart({ data }: TradingChartProps) {
     if (!chartContainerRef.current) return;
 
     try {
-      const chartOptions = {
+      const chartOptions: DeepPartial<ChartOptions> = {
         layout: {
           background: {
             type: ColorType.Solid,
@@ -52,12 +60,12 @@ export default function TradingChart({ data }: TradingChartProps) {
           mode: 1,
           vertLine: {
             color: '#555',
-            width: 1,
+            width: LineWidth.Thin,
             style: LineStyle.Dotted,
           },
           horzLine: {
             color: '#555',
-            width: 1,
+            width: LineWidth.Thin,
             style: LineStyle.Dotted,
           },
         },
